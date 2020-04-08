@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#create'
   get '/signup' => 'users#new'
 
+
+  get '/auth/google' => 'sessions#google_create'
+
   resources :reviews
   resources :hotels
   resources :locations

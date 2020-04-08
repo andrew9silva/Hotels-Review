@@ -1,7 +1,9 @@
 <h1>Login</h1>
 
-<%= form_tag ({controller: 'sessions', action: 'create', method: 'post'}) do %>
-    <input username=username>
-    <input password=password>
-    <input type=submit value='login'>
-  <% end %>
+<%= form_for :user do |f| %>
+    Username: <%= f.text_field :username %>
+    Password: <%= f.password_field :password %>
+    <%= f.submit "Log In" %>
+<% end %><br><br>
+
+<%= link_to('Log in with Google!', '/auth/google') %>
