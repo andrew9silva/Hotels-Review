@@ -4,15 +4,11 @@ class User < ApplicationRecord
     has_many :reviews
     has_many :hotels, through: :reviews
 
-    def self.from_omniauth(auth_hash)
-        user = find_or_create_by(uid: auth_hash['uid'], provider: auth_hash['provider'])
-        user.username = auth_hash['info']['name']
-        user.location = auth_hash['info']['location']
-        user.image_url = auth_hash['info']['image']
-        user.url = auth_hash['info']['urls']['Google']
-        user.save!
-        user
-      end
-
-    
+    def self.from_omniauth(auth)
+        where(email: auth.info.email).first_or_initialize do |user|
+            user.uid = auth.uid
+            user.name = auth.info.name
+            user.email = auth.info.emailuser.image_url = auth.info.image_url
+        end
+    end
 end
