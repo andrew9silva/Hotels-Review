@@ -3,10 +3,11 @@ Rails.application.routes.draw do
   get '/' => 'sessions#welcome'
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
+  get '/auth/google/callback' => 'sessions#google_create'
   get '/signup' => 'users#new'
 
 
-  get '/auth/google' => 'sessions#google_create'
+  get '/auth/google/callback' => 'sessions#google_create'
 
   resources :reviews
   resources :hotels
