@@ -8,15 +8,20 @@ class UsersController < ApplicationController
         @user = User.new(user_params)
         if @user.save
             session[:user_id] = @user.id
-            redirect_to user_path(@user)
+            redirect_to home_path
         else
             render 'users/new'
         end
     end
 
-    def show
+    def home
         @user = User.find_by_id(params[:id])
-    end
+        unless logged_in?
+          redirect_to home_path
+        end
+      end
+
+    @user = User.find_by_id(params[:id])
 
     private
 
