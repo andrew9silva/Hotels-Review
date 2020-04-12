@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
 
     def google_create
         access_token = request.env['omniauth.auth']
-        @user = User.from_omniauth(access_token)
+        @user = User.find_or_create_from_auth_hash(access_token)
         @user.save
         session[:user_id] = @user.id
       
