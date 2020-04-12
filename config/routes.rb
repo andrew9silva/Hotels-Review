@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   
 
   get '/' => 'sessions#welcome'
-  get 'auth/:provider/callback' => 'sessions#google_create'
+  get 'auth/google_oauth2/callback' => 'sessions#google_create'
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   get '/signup' => 'users#new'
