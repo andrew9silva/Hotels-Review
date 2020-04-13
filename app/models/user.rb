@@ -9,7 +9,7 @@ class User < ApplicationRecord
         
         user.uid = auth.info.uid
         user.username = auth.info.email
-        user.password_digest = auth.info.password
+        user.password = SecureRandom.hex
     
         user.save
       end
