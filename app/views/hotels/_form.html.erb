@@ -1,0 +1,16 @@
+<%= form_for @hotel do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+
+    <%= f.label :price_level %>
+    <%= f.text_field :price_level, placeholder: "1-5" %>
+
+    <%= f.label :amenities %>
+    <%= f.text_field :amenities %>
+
+    <%= f.hidden_field :user_id %>
+    <%= f.hidden_field :location_id %>
+
+    <%= f.submit %>
+
+<% end %>
