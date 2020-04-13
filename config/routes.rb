@@ -1,18 +1,15 @@
 Rails.application.routes.draw do
 
-  
+  root 'sessions#welcome'
 
-  get '/' => 'sessions#welcome'
-  get 'auth/google_oauth2/callback' => 'sessions#google_create'
+  
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   get '/signup' => 'users#new'
+  delete '/logout' => 'sessions#destroy'
 
-  get '/home' => 'users#home'
+  get 'auth/google_oauth2/callback' => 'sessions#google_create'
 
-
-
- 
 
   resources :reviews
   resources :hotels

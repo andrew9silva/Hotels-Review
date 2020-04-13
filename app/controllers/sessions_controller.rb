@@ -11,8 +11,7 @@ class SessionsController < ApplicationController
         @user = User.find_or_create_from_auth_hash(access_token)
         @user.save
         session[:user_id] = @user.id
-      
-        redirect_to users_path(@user)
+        redirect_to user_path(@user)
     end
 
     def create
@@ -21,8 +20,13 @@ class SessionsController < ApplicationController
        session[:username] = @user.id
        redirect_to user_path(@user)
       else
-       render :new 
+        redirect_to '/login' 
       end
+    end
+
+    def destroy
+        session.clear
+        redirect_to root_path
     end
 
     private 
