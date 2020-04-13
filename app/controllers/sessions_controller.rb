@@ -12,14 +12,14 @@ class SessionsController < ApplicationController
         @user.save
         session[:user_id] = @user.id
       
-        redirect_to home_path
+        redirect_to users_path(@user)
     end
 
     def create
       @user = User.find_by(username: params[:user][:username])  
       if @user && @user.authenticate(params[:user][:password])
        session[:username] = @user.id
-       redirect_to home_path
+       redirect_to user_path(@user)
       else
        render :new 
       end
