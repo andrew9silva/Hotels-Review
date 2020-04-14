@@ -10,10 +10,10 @@ class HotelsController < ApplicationController
 
     def create
         @hotel = Hotel.new(hotel_params)
-        if @hotel.save
-            redirect_to 'hotels/index'
+        if @hotel.save!
+            redirect_to '/hotels/index'
         else
-            redirect_to 'users/show'
+            redirect_to '/users/show'
         end
 
     end
