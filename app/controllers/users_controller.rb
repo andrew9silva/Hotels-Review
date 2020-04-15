@@ -16,7 +16,7 @@ class UsersController < ApplicationController
 
     def show
         @user = User.find_by_id(params[:id])
-        
+        @locations = Location.all
         # unless @user.logged_in?
         #   redirect_to home_path
         # end
