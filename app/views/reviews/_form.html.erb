@@ -1,0 +1,10 @@
+<%= form_for @review do |f| %>
+    <%= f.label :date_visited %>
+    <%= f.text_field :date_visited, placeholder: 'MM/DD/YYYY' %>
+
+    <%= f.label :content %>
+    <%= f.text_field :content %>
+
+    <%= f.submit %>
+
+<% end %>
