@@ -11,9 +11,9 @@ class HotelsController < ApplicationController
     def create
         @hotel = Hotel.new(hotel_params)
         if @hotel.save!
-            redirect_to '/hotels/index'
+            redirect_to hotel_path(@hotel)
         else
-            redirect_to '/users/show'
+            redirect_to '/hotels/new'
         end
 
     end
