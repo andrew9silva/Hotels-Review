@@ -15,6 +15,11 @@ Rails.application.routes.draw do
   resources :reviews
   resources :hotels
   resources :locations
+
+  resources :locations, only [:show] do 
+    resources :hotels, only [:new, :show, :create]
+  end
+  
   resources :users
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
