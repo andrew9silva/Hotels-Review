@@ -26,6 +26,10 @@ class HotelsController < ApplicationController
 
     def edit 
         @hotel = Hotel.find_by_id(params[:id])
+    end
+
+    def update
+        @hotel = Hotel.find_by_id(params[:id])
         if @hotel.update(hotel_params)
             redirect_to hotel_path(@hotel)
         else
