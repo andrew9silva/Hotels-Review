@@ -3,7 +3,7 @@
     <%= f.text_field :name %>
 
     <%= f.label :location %>
-    <%= f.collection_select(:location_id, Location.all, :name, :id) %>
+    <%= f.collection_select(:location_id, Location.all, :id, :name) %>
 
     <%= f.label :price_level %>
     <%= f.text_field :price_level, placeholder: "1-5" %>
