@@ -1,5 +1,7 @@
 class LocationsController < ApplicationController
 
+    before_action :require_login, only: [:new, :create]
+
     def index
         @locations = Location.all
     end
