@@ -1,3 +1,5 @@
 <% @locations.each do |l| %>
     <li><%= link_to l.name, location_path(l)  %></li>
 <% end %>
+
+<p>Location not listed?  Add it <%= link_to "here", new_location_path %>
