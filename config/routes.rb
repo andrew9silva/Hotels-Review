@@ -16,8 +16,8 @@ Rails.application.routes.draw do
   resources :hotels
   resources :locations
 
-  resources :locations, only [:show] do 
-    resources :hotels, only [:new, :show, :create]
+  resources :locations, only: [:show] do 
+    resources :hotels, only: [:new, :show, :create]
   end
   
   resources :users

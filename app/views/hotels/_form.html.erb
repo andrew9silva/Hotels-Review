@@ -3,7 +3,7 @@
     <%= f.text_field :name %>
 
     <%= f.label :location %>
-    <%= f.text_field :location, placeholder: "City, State" %>
+    <%= f.collection_select(:location_id, Location.all, :name, :id) %>
 
     <%= f.label :price_level %>
     <%= f.text_field :price_level, placeholder: "1-5" %>
@@ -11,7 +11,7 @@
     <%= f.label :amenities %>
     <%= f.text_field :amenities %>
 
-    <%= f.hidden_field :user_id %>
+    <%= f.hidden_field :location_id %>
 
     <%= f.submit %>
 
