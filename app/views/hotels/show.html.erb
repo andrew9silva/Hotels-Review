@@ -1,8 +1,8 @@
 <h1><%= @hotel.name %></h1>
 
-<h2><%= @hotel.location %></h2><br>
-<h2><%= @hotel.price_level %></h2><br>
-<h2><%= @hotel.amenities %></h2>
+<h2>Location: <%= @hotel.location %></h2><br>
+<h2>Price Level: <%= @hotel.price_level %></h2><br>
+<h2>Amenities: <%= @hotel.amenities %></h2>
 
 <p><%= link_to 'Leave a review', '/reviews/new' %></p>
 <p>Is this hotel a duplicate? <%= link_to 'Click Here', edit_hotel_path %> to remove it</p> 
