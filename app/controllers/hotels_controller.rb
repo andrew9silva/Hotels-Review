@@ -24,6 +24,21 @@ class HotelsController < ApplicationController
         @hotel = Hotel.find_by_id(params[:id])
     end
 
+    def edit 
+        @hotel = Hotel.find_by_id(params[:id])
+        if @hotel.update(hotel_params)
+            redirect_to hotel_path(@hotel)
+        else
+            render :edit
+        end
+    end
+
+    def destroy
+        @hotel = Hotel.find(params[:id])
+        @hotel.destroy
+        redirect_to root_path
+    end
+
     private
 
     def hotel_params
