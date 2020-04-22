@@ -1,6 +1,6 @@
 <ul>
 <% @hotels.each do |h| %>
-    <li><%= link_to h.name, hotel_path(h)  %></li>
+    <li><%= link_to h.name, hotel_path(h)  %>, <%= h.location.name %></li>
     
 <% end %>
 </ul>
