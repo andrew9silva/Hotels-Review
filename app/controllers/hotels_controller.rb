@@ -12,6 +12,7 @@ class HotelsController < ApplicationController
 
     def create
         @hotel = Hotel.new(hotel_params)
+        @hotel.user_id = current_user.id
         if @hotel.save!
             redirect_to hotel_path(@hotel)
         else

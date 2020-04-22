@@ -1,7 +1,8 @@
 module ApplicationHelper
 
     def current_user
-        @current_user ||= User.find_by_id(id: session[:user_id])
+      return unless session[:user_id]
+      @current_user ||= User.find(session[:user_id])
     end
 
     def logged_in?
@@ -12,6 +13,6 @@ module ApplicationHelper
         unless logged_in?
           redirect_to login_path 
         end
-      end
+    end
 
 end
