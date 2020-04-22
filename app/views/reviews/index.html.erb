@@ -1,3 +1,4 @@
 <% @reviews.each do |r| %>
-    <li><%= link_to r.content, review_path(r) %></li>
+    <li><%#= link_to r.content, review_path(r) %></li>
+    <%= r.content %>
 <% end %>

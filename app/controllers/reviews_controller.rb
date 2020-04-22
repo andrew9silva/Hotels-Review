@@ -1,21 +1,22 @@
 class ReviewsController < ApplicationController
 
-    #before_action :require_login
+    before_action :get_hotel
 
     def index
-        @reviews = Review.all
+        @reviews = @hotel.reviews
     end
 
     def new
-        @review = Review.new
+        @review = @hotel.reviews.build
     end
 
     def create
-        @review = Review.new(review_params)
+        @review = @hotel.reviews.build(review_params)
+        @review.user_id = current_user.id
         if @review.save!
-           redirect_to review_path(@review)
+           redirect_to hotel_path(@hotel)
         else
-           redirect_to '/reviews/new'
+           redirect_back(fallback_location: new_hotel_review_path(@hotel))
         end  
     end
 
@@ -40,5 +41,9 @@ class ReviewsController < ApplicationController
 
     def review_params
         params.require(:review).permit(:date_visited, :content)
+    end
+
+    def get_hotel
+        @hotel = Hotel.find(params[:hotel_id])
     end
 end
