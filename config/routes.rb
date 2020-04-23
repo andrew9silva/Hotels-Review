@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 
  
   resources :hotels do 
-    resources :reviews
+    resource :reviews 
   end
   resources :locations
 

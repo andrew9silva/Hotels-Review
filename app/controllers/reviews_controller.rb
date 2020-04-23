@@ -2,9 +2,6 @@ class ReviewsController < ApplicationController
 
     before_action :get_hotel
 
-    def index
-        @reviews = @hotel.reviews
-    end
 
     def new
         @review = @hotel.reviews.build
