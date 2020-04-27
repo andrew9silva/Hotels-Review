@@ -25,7 +25,7 @@ class ReviewsController < ApplicationController
         @review = Review.find_by_id(params[:id])
     end
 
-    def update
+    def update  
         @review = Review.find_by_id(params[:id])
         if @review.update(review_params)
             redirect_to review_path(@review)

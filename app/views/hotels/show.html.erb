@@ -4,11 +4,11 @@
 <h2>Price Level: <%= @hotel.price_level %></h2><br>
 <h2>Amenities: <%= @hotel.amenities %></h2>
 
-<p><%= link_to 'Leave a review', new_hotel_review_path(@hotel) %></p>
+<p><%= link_to 'Leave a review', new_hotel_reviews_path(@hotel) %></p>
 
 <p>See what others have said:</p>
 <% @hotel.reviews.each do |review| %>
-    <li><%= review.content %> By: <%= review.user.username %></li>
+    <li><%= review.content %> By: <%= review.user.username %><br><%= link_to 'Go to Review', hotel_reviews_path(@hotel) %></li>
 <% end %>
-<p>Is this hotel a duplicate? <%= link_to 'Click Here', edit_hotel_path %> to remove it</p> 
+ 
 
