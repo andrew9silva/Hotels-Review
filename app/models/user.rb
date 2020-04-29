@@ -7,7 +7,7 @@ class User < ApplicationRecord
     def self.find_or_create_from_auth_hash(auth)
       where(uid: auth.uid).first_or_initialize.tap do |user|
         
-        user.uid = auth.info.uid
+        user.uid = auth.uid
         user.username = auth.info.email
         user.password = SecureRandom.hex
     
