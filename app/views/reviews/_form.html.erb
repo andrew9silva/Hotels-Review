@@ -1,7 +1,7 @@
 <%= form_for([@hotel, @review]) do |f| %>
 
     <%= f.label :date_visited %>
-    <%= f.text_field :date_visited, placeholder: 'MM/DD/YYYY' %>
+    <%= f.date_select :date_visited %>
 
     <%= f.label :content %>
     <%= f.text_field :content %>
