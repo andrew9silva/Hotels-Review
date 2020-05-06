@@ -1,6 +1,7 @@
 class ReviewsController < ApplicationController
 
     before_action :get_hotel
+    before_action :get_review, except: [:new, :create]
 
 
     def new
@@ -13,25 +14,38 @@ class ReviewsController < ApplicationController
         if @review.save!
            redirect_to hotel_path(@hotel)
         else
+            #include a flash error?
            redirect_back(fallback_location: new_hotel_review_path(@hotel))
         end  
     end
 
     def show
-        @review = Review.find_by_id(params[:hotel_id])
+        #@review = Review.find_by_id(params[:id])
     end
 
     def edit
-        @review = Review.find_by_id(params[:hotel_id])
+        @review = Review.find_by_id(params[:id])
     end
 
-    def update  
-        @review = Review.find_by_id(params[:hotel_id])
-        if @review.update(review_params)
-            redirect_to review_path(@review)
+    def update
+        if current_user.id == @review.user_id
+            if @review.update(review_params)
+                redirect_to hotel_review_path(@hotel, @review)
+            else
+                #flash error?
+                render :edit
+            end
         else
-            render :edit
-        end
+            #include a flash error?
+            redirect_back(fallback_location: hotel_path(@hotel))
+        end  
+        
+    end
+
+    def destroy
+        @review = Review.find_by_id(params[:id])
+        @review.delete
+        redirect_to hotel_path(@hotel)
     end
 
 
@@ -43,5 +57,8 @@ class ReviewsController < ApplicationController
 
     def get_hotel
         @hotel = Hotel.find(params[:hotel_id])
+    end
+    def get_review
+        @review = Review.find(params[:id])
     end
 end
