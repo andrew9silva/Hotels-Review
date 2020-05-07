@@ -43,9 +43,12 @@ class ReviewsController < ApplicationController
     end
 
     def destroy
-        @review = Review.find_by_id(params[:id])
-        @review.delete
-        redirect_to hotel_path(@hotel)
+        if current_user.id == @review.user_id
+          @review.delete
+          redirect_to hotel_path(@hotel)
+        else
+          redirect_back(fallback_location: hotel_path(@hotel))
+        end
     end
 
 
