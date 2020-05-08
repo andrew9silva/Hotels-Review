@@ -4,6 +4,8 @@ class User < ApplicationRecord
     has_many :reviews
     has_many :hotels, through: :reviews
 
+    scope :recent_stays, lamda { where('published_at >= ?', Time.now - 26.week) }
+
     def self.find_or_create_from_auth_hash(auth)
       where(uid: auth.uid).first_or_initialize.tap do |user|
         
