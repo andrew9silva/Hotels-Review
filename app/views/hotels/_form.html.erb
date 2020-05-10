@@ -1,16 +1,26 @@
-<div id='test'>
+
  <%= form_for @hotel do |f| %>
+
+   <% if @hotel.errors.any? %>
+   <h2>Errors:</h2>
+   <ul>
+      <% @hotel.errors.full_messages.each do |message| %>
+         <li><%= message %></li>
+      <% end %>
+   </ul>
+   <% end %>
+
     <%= f.label :name %>
-    <%= f.text_field :name %>
+    <%= f.text_field :name %><br>
 
     <%= f.label :location %>
-    <%= f.collection_select(:location_id, Location.all, :id, :name, :prompt => 'Select location') %>
+    <%= f.collection_select(:location_id, Location.all, :id, :name, :prompt => 'Select location') %><br>
 
     <%= f.label :price_level %>
-    <%= f.text_field :price_level, placeholder: "1-5" %>
+    <%= f.text_field :price_level, placeholder: "1-5" %><br>
 
     <%= f.label :amenities %>
-    <%= f.text_field :amenities %>
+    <%= f.text_field :amenities %><br>
 
     <%= f.submit %>
 

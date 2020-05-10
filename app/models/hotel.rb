@@ -4,4 +4,6 @@ class Hotel < ApplicationRecord
     has_many :reviews, dependent: :destroy
     has_many :users, through: :reviews
 
+    validates :name, :price_level, :amenities, :location, :presence => true
+
 end
