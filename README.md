@@ -1,24 +1,19 @@
-# README
+Overview
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This README allows you track hotels you have visited by city and leave your thoughts (review) of your experience there.  It alos allows you to see what others have thought of hotels they have been to or the one you visited.
 
-Things you may want to cover:
+Installation
 
-* Ruby version
+To use the application locally, fork and clone the repo. Then run bundle install from the directory. Next run rake db:migrate to load the databases. Then, run rails s and navigate to localhost:3000 in your browser.
 
-* System dependencies
+Contributing
 
-* Configuration
+Feel free to submit a pull request
 
-* Database creation
+License
 
-* Database initialization
+This is created with a MIT license.
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
 
-* ...
