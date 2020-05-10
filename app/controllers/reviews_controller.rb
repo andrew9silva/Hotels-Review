@@ -2,6 +2,7 @@ class ReviewsController < ApplicationController
 
     before_action :get_hotel
     before_action :get_review, except: [:new, :create]
+    before_action :require_login, only: [:new, :create]
 
 
     def new
