@@ -16,7 +16,7 @@ class HotelsController < ApplicationController
         if @hotel.save
             redirect_to hotel_path(@hotel)
         else
-            redirect_to '/hotels/new'
+            render :new
         end
 
     end

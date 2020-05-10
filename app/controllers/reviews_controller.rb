@@ -15,8 +15,7 @@ class ReviewsController < ApplicationController
         if @review.save
            redirect_to hotel_path(@hotel)
         else
-            #include a flash error?
-           redirect_back(fallback_location: new_hotel_review_path(@hotel))
+          render :new
         end  
     end
 

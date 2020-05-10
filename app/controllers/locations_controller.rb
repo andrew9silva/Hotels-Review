@@ -15,7 +15,7 @@ class LocationsController < ApplicationController
         if @location.save
             redirect_to location_path(@location)
         else
-            redirect_to '/locations/new'
+            render :new
         end
     end
 
