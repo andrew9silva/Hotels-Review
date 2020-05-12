@@ -22,9 +22,9 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Model has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
-#to give a user admin privileges
+gem 'cancancan' #to give a user admin privileges
 
-gem 'cancancan'
+gem 'bootstrap-sass' #for app design
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
