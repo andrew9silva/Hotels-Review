@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_07_013728) do
+ActiveRecord::Schema.define(version: 2020_05_12_230835) do
 
   create_table "hotels", force: :cascade do |t|
     t.string "name"
@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(version: 2020_05_07_013728) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "uid"
+    t.boolean "admin", default: false
   end
 
   add_foreign_key "hotels", "locations"

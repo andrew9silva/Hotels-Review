@@ -1,5 +1,6 @@
 class LocationsController < ApplicationController
 
+    load_and_authorize_resource
     before_action :require_login, only: [:new, :create]
 
     def index
