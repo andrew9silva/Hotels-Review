@@ -24,7 +24,8 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'cancancan' #to give a user admin privileges
 
-gem 'bootstrap-sass' #for app design
+gem 'bootstrap-sass' #for application design
+
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
