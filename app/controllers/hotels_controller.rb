@@ -1,10 +1,10 @@
 class HotelsController < ApplicationController
 
-    load_and_authorize_resource
+    load_and_authorize_resource except: [:highest_price]
     before_action :require_login, only: [:new, :create]
 
     def index  
-        @hotels = Hotel.all 
+        @hotels = Hotel.all
     end
 
     def new
@@ -45,6 +45,10 @@ class HotelsController < ApplicationController
         @hotel.destroy
         redirect_to root_path
 
+    end
+
+    def highest_price
+        @hotel = Hotel.highest_price
     end
 
     private

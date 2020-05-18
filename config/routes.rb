@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   get 'auth/:provider/callback' => 'sessions#google_create'
   get 'auth/failure', to: redirect('/')
 
+  get 'hotels/highest_price' => 'hotels#highest_price'
+
 
  
   resources :hotels do 
